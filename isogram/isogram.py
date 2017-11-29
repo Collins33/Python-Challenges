@@ -1,13 +1,17 @@
 def is_isogram(string):
-    seen = set()
+    #remove hyphen
+    newString=string.replace("-","")
+    #remove spaces
+    newString.strip()
+    #change the string into set
+    newSet=set(newString)
+    #change to lower
+    newString.lower()
 
-    for char in string.lower():
-        if not char.isalpha():
-            continue
 
-        if char in seen:
-            return False
-
-        seen.add(char)
-
-    return True
+    if newString == "":
+        return True
+    elif len(newSet) != len(newString):
+        return False
+    elif len(newSet) == len(newString):
+        return True   
