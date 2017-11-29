@@ -1,17 +1,13 @@
 def is_isogram(string):
-    if string == "":
-        return True
-    else:
-        newString=string.replace("-","")
-        newString.lower()
-        count=0
-        for x in range(0,len(newString)-1):
-            for y in range(len(newString)-1,0,-1):
+    seen = set()
 
-                if newString[x] == newString[y]:
-                    count +=1
+    for char in string.lower():
+        if not char.isalpha():
+            continue
 
-        if count == 1:
-            return True
-        else:
+        if char in seen:
             return False
+
+        seen.add(char)
+
+    return True
