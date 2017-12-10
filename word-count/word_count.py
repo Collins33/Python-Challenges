@@ -1,15 +1,18 @@
 def word_count(phrase):
-    phraseList=phrase.split()
-    print(phraseList)
+    newPhrase=phrase.replace(":","").replace(".","").replace("_"," ").replace(","," ")
+    phraseList=newPhrase.lower().split()
+    print(newPhrase)
     countList=[]
-    count=0
+    countDict={}
+
     for x in range(0,len(phraseList)):
-        # for y in range(len(phraseList),0):
-        if phraseList[x] == phraseList[x] and phraseList.index(phraseList[x]) != phraseList.index(phraseList[x]):
-            count +=1
+        countList.append(phraseList.count(phraseList[x]))
+        countDict[phraseList[x]]=countList[x]
 
-    print(count)
+    print(countList)
+    return countDict
 
 
 
-word_count('one fish two fish red fish blue fish')
+
+word_count('First: don\'t laugh. Then: don\'t cry.')
